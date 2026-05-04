@@ -9,7 +9,6 @@ function adminOnly(req, res, next) {
   res.status(403).json({ message: 'Forbidden.' });
 }
 
-// ── ADMIN LOGIN ──
 router.post('/login', (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
@@ -26,7 +25,6 @@ router.post('/login', (req, res) => {
   res.json({ success: true });
 });
 
-// ── GET ALL QUERIES ──
 router.get('/queries', adminOnly, async (req, res) => {
   try {
     const queries = await Query.find({}).sort({ createdAt: -1 });
@@ -36,7 +34,6 @@ router.get('/queries', adminOnly, async (req, res) => {
   }
 });
 
-// ── UPDATE QUERY STATUS ──
 router.patch('/queries/:id/status', adminOnly, async (req, res) => {
   try {
     const query = await Query.findByIdAndUpdate(
@@ -53,7 +50,6 @@ router.patch('/queries/:id/status', adminOnly, async (req, res) => {
   }
 });
 
-// ── DELETE QUERY ──
 router.delete('/queries/:id', adminOnly, async (req, res) => {
   try {
     await Query.findByIdAndDelete(req.params.id);
@@ -63,7 +59,6 @@ router.delete('/queries/:id', adminOnly, async (req, res) => {
   }
 });
 
-// ── GET ALL USERS ──
 router.get('/users', adminOnly, async (req, res) => {
   try {
     const users = await User.find({ role: 'user' }).select('-password');
@@ -73,7 +68,6 @@ router.get('/users', adminOnly, async (req, res) => {
   }
 });
 
-// ── DELETE USER ──
 router.delete('/users/:id', adminOnly, async (req, res) => {
   try {
     await User.findByIdAndDelete(req.params.id);

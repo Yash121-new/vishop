@@ -13,20 +13,16 @@ const PORT = process.env.PORT || 3000;
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'admin@vishoptrader.com';
 const ADMIN_PASS = process.env.ADMIN_PASS || 'admin123';
 
-// ── MIDDLEWARE ──
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// ── ROUTES ──
 app.use('/api', publicRoutes);
 app.use('/api/admin', adminRoutes);
 
-// ── FALLBACK SPA ──
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// ── CONNECT & START ──
 async function start() {
   try {
     await connectDB();

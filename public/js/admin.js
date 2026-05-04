@@ -277,7 +277,7 @@ function switchPanel(name) {
 function logout() {
   localStorage.removeItem('vtAdmin');
   localStorage.removeItem('vtUser');
-  window.location.href = '/admin.html';
+  window.location.href = '/';
 }
 
 function initAdminPanel() {

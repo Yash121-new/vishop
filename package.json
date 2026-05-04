@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "dotenv": "^16.3.1",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "mongoose": "^7.8.9"
   },
   "author": "Vishop Trader LLP",
   "license": "ISC"

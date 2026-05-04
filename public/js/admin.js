@@ -120,7 +120,7 @@ function renderRecent() {
       <td>${q.service || '—'}</td>
       <td>${fmtDate(q.createdAt)}</td>
       <td><span class="badge ${q.status}">${q.status}</span></td>
-      <td><button class="action-btn" onclick="openModal('${q.id}')">View</button></td>
+      <td><button class="action-btn" onclick="openModal('${q._id}')">View</button></td>
     </tr>
   `
     )
@@ -160,8 +160,8 @@ function renderAllQueries(filter = 'all', search = '') {
       <td>${fmtDate(q.createdAt)}</td>
       <td><span class="badge ${q.status}">${q.status}</span></td>
       <td>
-        <button class="action-btn" onclick="openModal('${q.id}')">View</button>
-        <button class="action-btn danger" onclick="deleteQuery('${q.id}')">Del</button>
+        <button class="action-btn" onclick="openModal('${q._id}')">View</button>
+        <button class="action-btn danger" onclick="deleteQuery('${q._id}')">Del</button>
       </td>
     </tr>
   `
@@ -185,7 +185,7 @@ function renderUsers() {
       <td>${u.phone || '—'}</td>
       <td>${u.service || '—'}</td>
       <td>${fmtDate(u.createdAt)}</td>
-      <td><button class="action-btn danger" onclick="deleteUser('${u.id}')">Remove</button></td>
+      <td><button class="action-btn danger" onclick="deleteUser('${u._id}')">Remove</button></td>
     </tr>
   `
     )
@@ -193,7 +193,7 @@ function renderUsers() {
 }
 
 function openModal(id) {
-  const q = allQueries.find((x) => x.id === id);
+  const q = allQueries.find((x) => x._id === id);
   if (!q) return;
   currentQueryId = id;
   document.getElementById('modal-name').textContent = q.name;
@@ -225,7 +225,7 @@ async function markStatus(id, status, silent = false) {
     closeModal();
     loadData();
   } else {
-    const q = allQueries.find((x) => x.id === id);
+    const q = allQueries.find((x) => x._id === id);
     if (q) {
       q.status = status;
     }

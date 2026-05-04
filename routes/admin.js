@@ -1,17 +1,15 @@
 const express = require('express');
-const { readJSON, writeJSON } = require('../utils/file');
-const path = require('path');
+const Query = require('../models/Query');
+const User = require('../models/User');
 
 const router = express.Router();
-
-const QUERIES_FILE = path.join(__dirname, '../data/queries.json');
-const USERS_FILE = path.join(__dirname, '../data/users.json');
 
 function adminOnly(req, res, next) {
   if (req.headers['x-admin'] === 'true') return next();
   res.status(403).json({ message: 'Forbidden.' });
 }
 
+// ── ADMIN LOGIN ──
 router.post('/login', (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
@@ -28,38 +26,61 @@ router.post('/login', (req, res) => {
   res.json({ success: true });
 });
 
-router.get('/queries', adminOnly, (req, res) => {
-  res.json(readJSON(QUERIES_FILE));
-});
-
-router.patch('/queries/:id/status', adminOnly, (req, res) => {
-  const queries = readJSON(QUERIES_FILE);
-  const idx = queries.findIndex((q) => q.id === req.params.id);
-  if (idx === -1) {
-    return res.status(404).json({ message: 'Query not found.' });
+// ── GET ALL QUERIES ──
+router.get('/queries', adminOnly, async (req, res) => {
+  try {
+    const queries = await Query.find({}).sort({ createdAt: -1 });
+    res.json(queries);
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching queries.' });
   }
-  queries[idx].status = req.body.status;
-  writeJSON(QUERIES_FILE, queries);
-  res.json({ success: true });
 });
 
-router.delete('/queries/:id', adminOnly, (req, res) => {
-  let queries = readJSON(QUERIES_FILE);
-  queries = queries.filter((q) => q.id !== req.params.id);
-  writeJSON(QUERIES_FILE, queries);
-  res.json({ success: true });
+// ── UPDATE QUERY STATUS ──
+router.patch('/queries/:id/status', adminOnly, async (req, res) => {
+  try {
+    const query = await Query.findByIdAndUpdate(
+      req.params.id,
+      { status: req.body.status },
+      { new: true }
+    );
+    if (!query) {
+      return res.status(404).json({ message: 'Query not found.' });
+    }
+    res.json({ success: true });
+  } catch (error) {
+    res.status(500).json({ message: 'Error updating query.' });
+  }
 });
 
-router.get('/users', adminOnly, (req, res) => {
-  const users = readJSON(USERS_FILE).map(({ password, ...u }) => u);
-  res.json(users.filter((u) => u.role !== 'admin'));
+// ── DELETE QUERY ──
+router.delete('/queries/:id', adminOnly, async (req, res) => {
+  try {
+    await Query.findByIdAndDelete(req.params.id);
+    res.json({ success: true });
+  } catch (error) {
+    res.status(500).json({ message: 'Error deleting query.' });
+  }
 });
 
-router.delete('/users/:id', adminOnly, (req, res) => {
-  let users = readJSON(USERS_FILE);
-  users = users.filter((u) => u.id !== req.params.id);
-  writeJSON(USERS_FILE, users);
-  res.json({ success: true });
+// ── GET ALL USERS ──
+router.get('/users', adminOnly, async (req, res) => {
+  try {
+    const users = await User.find({ role: 'user' }).select('-password');
+    res.json(users);
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching users.' });
+  }
+});
+
+// ── DELETE USER ──
+router.delete('/users/:id', adminOnly, async (req, res) => {
+  try {
+    await User.findByIdAndDelete(req.params.id);
+    res.json({ success: true });
+  } catch (error) {
+    res.status(500).json({ message: 'Error deleting user.' });
+  }
 });
 
 module.exports = router;

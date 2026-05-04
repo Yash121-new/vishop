@@ -1,7 +1,3 @@
-/* ════════════════════════════════════════════════════════ */
-/* ADMIN PANEL HANDLER */
-/* ════════════════════════════════════════════════════════ */
-
 let allQueries = [];
 let allUsers = [];
 let currentQueryId = null;
@@ -66,7 +62,6 @@ async function handleAdminLogin(event) {
   }
 }
 
-// Load initial data
 async function loadData() {
   try {
     const [qRes, uRes] = await Promise.all([
@@ -84,7 +79,6 @@ async function loadData() {
   }
 }
 
-// Update statistics
 function updateStats() {
   document.getElementById('stat-total').textContent = allQueries.length;
   document.getElementById('stat-new').textContent = allQueries.filter(
@@ -99,7 +93,6 @@ function updateStats() {
   ).length;
 }
 
-// Format date
 function fmtDate(d) {
   return new Date(d).toLocaleString('en-IN', {
     day: '2-digit',
@@ -110,7 +103,6 @@ function fmtDate(d) {
   });
 }
 
-// Render recent queries
 function renderRecent() {
   const tbody = document.getElementById('recentQueriesBody');
   const rows = [...allQueries].reverse().slice(0, 10);
@@ -135,7 +127,6 @@ function renderRecent() {
     .join('');
 }
 
-// Render all queries with filtering
 function renderAllQueries(filter = 'all', search = '') {
   const tbody = document.getElementById('allQueriesBody');
   let rows = [...allQueries].reverse();
@@ -178,7 +169,6 @@ function renderAllQueries(filter = 'all', search = '') {
     .join('');
 }
 
-// Render users
 function renderUsers() {
   const tbody = document.getElementById('usersBody');
   if (!allUsers.length) {
@@ -202,7 +192,6 @@ function renderUsers() {
     .join('');
 }
 
-// Open modal with query details
 function openModal(id) {
   const q = allQueries.find((x) => x.id === id);
   if (!q) return;
@@ -214,13 +203,11 @@ function openModal(id) {
   document.getElementById('modal-message').textContent = q.message;
   document.getElementById('modal-date').textContent = fmtDate(q.createdAt);
   document.getElementById('modalOverlay').classList.add('open');
-  // Auto-mark as read
   if (q.status === 'new') {
     markStatus(id, 'read', true);
   }
 }
 
-// Close modal
 function closeModal(e) {
   if (!e || e.target === document.getElementById('modalOverlay')) {
     document.getElementById('modalOverlay').classList.remove('open');
@@ -228,7 +215,6 @@ function closeModal(e) {
   }
 }
 
-// Mark query status
 async function markStatus(id, status, silent = false) {
   await fetch(`/api/admin/queries/${id}/status`, {
     method: 'PATCH',
@@ -246,7 +232,6 @@ async function markStatus(id, status, silent = false) {
   }
 }
 
-// Delete query
 async function deleteQuery(id) {
   if (!confirm('Delete this query?')) return;
   await fetch(`/api/admin/queries/${id}`, { method: 'DELETE', headers: { 'x-admin': 'true' } });
@@ -254,14 +239,12 @@ async function deleteQuery(id) {
   loadData();
 }
 
-// Delete user
 async function deleteUser(id) {
   if (!confirm('Remove this user?')) return;
   await fetch(`/api/admin/users/${id}`, { method: 'DELETE', headers: { 'x-admin': 'true' } });
   loadData();
 }
 
-// Filter queries
 function filterQueries(filter, btn) {
   currentFilter = filter;
   document.querySelectorAll('.filter-btn').forEach((b) => b.classList.remove('active'));
@@ -269,12 +252,10 @@ function filterQueries(filter, btn) {
   renderAllQueries(filter, document.getElementById('searchInput').value.toLowerCase());
 }
 
-// Handle search
 function handleSearch(val) {
   renderAllQueries(currentFilter, val.toLowerCase());
 }
 
-// Switch between panels
 function switchPanel(name) {
   document.querySelectorAll('.panel').forEach((p) => p.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach((n) => n.classList.remove('active'));
@@ -293,7 +274,6 @@ function switchPanel(name) {
   }
 }
 
-// Logout
 function logout() {
   localStorage.removeItem('vtAdmin');
   localStorage.removeItem('vtUser');
@@ -308,7 +288,7 @@ function initAdminPanel() {
 
   hideAdminLogin();
   loadData();
-  setInterval(loadData, 30000); // refresh every 30s
+  setInterval(loadData, 30000);
 }
 
 window.addEventListener('DOMContentLoaded', () => {

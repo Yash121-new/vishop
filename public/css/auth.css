@@ -1,14 +1,9 @@
-/* ════════════════════════════════════════════════════════ */
-/* AUTH PAGES (Login & Signup) */
-/* ════════════════════════════════════════════════════════ */
-
 body {
   min-height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
-/* ── LEFT PANEL ── */
 .left-panel {
   background: linear-gradient(160deg, #0f0e0b 0%, #0a0a0a 60%, #111009 100%);
   padding: 60px;
@@ -83,7 +78,6 @@ body {
   color: var(--muted);
 }
 
-/* ── STEPS (Signup) ── */
 .steps {
   margin-top: 30px;
   display: flex;
@@ -123,7 +117,6 @@ body {
   font-size: 0.84rem;
 }
 
-/* ── RIGHT PANEL ── */
 .right-panel {
   padding: 60px;
   display: flex;
@@ -174,7 +167,6 @@ body {
   border-color: var(--border);
 }
 
-/* ── FORM STYLES ── */
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -296,7 +288,6 @@ body {
   font-weight: 500;
 }
 
-/* ── MOBILE ── */
 @media (max-width: 768px) {
   body {
     grid-template-columns: 1fr;

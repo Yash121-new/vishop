@@ -1,15 +1,9 @@
-/* ════════════════════════════════════════════════════════ */
-/* THEME SWITCHER - LIGHT/DARK MODE */
-/* ════════════════════════════════════════════════════════ */
-
-// Initialize theme on page load
 function initTheme() {
   const savedTheme = localStorage.getItem('theme') || 'dark';
   document.documentElement.setAttribute('data-theme', savedTheme);
   updateThemeButton(savedTheme);
 }
 
-// Toggle between light and dark themes
 function toggleTheme() {
   const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
   const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
@@ -19,7 +13,6 @@ function toggleTheme() {
   updateThemeButton(newTheme);
 }
 
-// Update button appearance based on theme
 function updateThemeButton(theme) {
   const btn = document.getElementById('themeToggle');
   if (btn) {
@@ -27,7 +20,6 @@ function updateThemeButton(theme) {
   }
 }
 
-// Handle navbar login/signup visibility
 function updateNavAuth() {
   const user = JSON.parse(localStorage.getItem('vtUser') || 'null');
   const navAuth = document.getElementById('navAuth');
@@ -74,13 +66,11 @@ window.addEventListener('click', () => {
   if (nav) nav.classList.remove('open');
 });
 
-// Handle logout
 function handleLogout() {
   localStorage.removeItem('vtUser');
   window.location.href = '/';
 }
 
-// Run on page load
 window.addEventListener('DOMContentLoaded', () => {
   initTheme();
   updateNavAuth();
@@ -92,7 +82,6 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// Listen for storage changes (logout from another tab)
 window.addEventListener('storage', () => {
   updateNavAuth();
 });

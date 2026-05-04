@@ -1,7 +1,3 @@
-/* ════════════════════════════════════════════════════════ */
-/* ADMIN ROUTES (protected with header check) */
-/* ════════════════════════════════════════════════════════ */
-
 const express = require('express');
 const { readJSON, writeJSON } = require('../utils/file');
 const path = require('path');
@@ -11,13 +7,11 @@ const router = express.Router();
 const QUERIES_FILE = path.join(__dirname, '../data/queries.json');
 const USERS_FILE = path.join(__dirname, '../data/users.json');
 
-// ── ADMIN GUARD ──
 function adminOnly(req, res, next) {
   if (req.headers['x-admin'] === 'true') return next();
   res.status(403).json({ message: 'Forbidden.' });
 }
 
-// ── ADMIN LOGIN ──
 router.post('/login', (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
@@ -34,12 +28,10 @@ router.post('/login', (req, res) => {
   res.json({ success: true });
 });
 
-// ── GET ALL QUERIES ──
 router.get('/queries', adminOnly, (req, res) => {
   res.json(readJSON(QUERIES_FILE));
 });
 
-// ── UPDATE QUERY STATUS ──
 router.patch('/queries/:id/status', adminOnly, (req, res) => {
   const queries = readJSON(QUERIES_FILE);
   const idx = queries.findIndex((q) => q.id === req.params.id);
@@ -51,7 +43,6 @@ router.patch('/queries/:id/status', adminOnly, (req, res) => {
   res.json({ success: true });
 });
 
-// ── DELETE QUERY ──
 router.delete('/queries/:id', adminOnly, (req, res) => {
   let queries = readJSON(QUERIES_FILE);
   queries = queries.filter((q) => q.id !== req.params.id);
@@ -59,13 +50,11 @@ router.delete('/queries/:id', adminOnly, (req, res) => {
   res.json({ success: true });
 });
 
-// ── GET ALL USERS ──
 router.get('/users', adminOnly, (req, res) => {
   const users = readJSON(USERS_FILE).map(({ password, ...u }) => u);
   res.json(users.filter((u) => u.role !== 'admin'));
 });
 
-// ── DELETE USER ──
 router.delete('/users/:id', adminOnly, (req, res) => {
   let users = readJSON(USERS_FILE);
   users = users.filter((u) => u.id !== req.params.id);

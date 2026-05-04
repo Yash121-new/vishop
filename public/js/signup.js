@@ -1,7 +1,3 @@
-/* ════════════════════════════════════════════════════════ */
-/* SIGNUP FORM HANDLER */
-/* ════════════════════════════════════════════════════════ */
-
 document.getElementById('signupForm')?.addEventListener('submit', async (e) => {
   e.preventDefault();
   const form = e.target;

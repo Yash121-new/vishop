@@ -1,7 +1,3 @@
-/* ════════════════════════════════════════════════════════ */
-/* MAIN SERVER - CLEAN & MODULAR */
-/* ════════════════════════════════════════════════════════ */
-
 require('dotenv').config();
 const express = require('express');
 const path = require('path');
@@ -15,7 +11,6 @@ const PORT = process.env.PORT || 3000;
 const DATA_DIR = path.join(__dirname, 'data');
 const USERS_FILE = path.join(DATA_DIR, 'users.json');
 
-// ── INITIALIZE DATA ──
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'admin@vishoptrader.com';
 const ADMIN_PASS = process.env.ADMIN_PASS || 'admin123';
 const adminUser = {
@@ -35,20 +30,16 @@ initializeDataDir(DATA_DIR, [
   { path: USERS_FILE, defaultData: [adminUser] }
 ]);
 
-// ── MIDDLEWARE ──
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// ── ROUTES ──
 app.use('/api', publicRoutes);
 app.use('/api/admin', adminRoutes);
 
-// ── FALLBACK SPA ──
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// ── START SERVER ──
 app.listen(PORT, () => {
   console.log(`\n🚀 Vishop Trader LLP — Server running on http://localhost:${PORT}`);
   console.log(`   Admin Panel : http://localhost:${PORT}/admin.html`);

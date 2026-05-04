@@ -1,7 +1,3 @@
-/* ════════════════════════════════════════════════════════ */
-/* CONTACT FORM HANDLER (INDEX PAGE) */
-/* ════════════════════════════════════════════════════════ */
-
 document.getElementById('contactForm')?.addEventListener('submit', async (e) => {
   e.preventDefault();
   const form = e.target;

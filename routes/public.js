@@ -1,7 +1,3 @@
-/* ════════════════════════════════════════════════════════ */
-/* PUBLIC ROUTES (Auth & Queries) */
-/* ════════════════════════════════════════════════════════ */
-
 const express = require('express');
 const { readJSON, writeJSON } = require('../utils/file');
 const { hashPassword, generateId } = require('../utils/auth');
@@ -12,7 +8,6 @@ const router = express.Router();
 const QUERIES_FILE = path.join(__dirname, '../data/queries.json');
 const USERS_FILE = path.join(__dirname, '../data/users.json');
 
-// ── CONTACT QUERY ──
 router.post('/query', (req, res) => {
   const { name, phone, email, service, message } = req.body;
   if (!name || !email || !message) {
@@ -39,7 +34,6 @@ router.post('/query', (req, res) => {
   res.json({ success: true, message: 'Query submitted successfully.' });
 });
 
-// ── SIGNUP ──
 router.post('/signup', (req, res) => {
   const { firstName, lastName, email, phone, password, service } = req.body;
 
@@ -80,7 +74,6 @@ router.post('/signup', (req, res) => {
   res.json({ success: true, message: 'Account created successfully.' });
 });
 
-// ── LOGIN ──
 router.post('/login', (req, res) => {
   const { email, password } = req.body;
 

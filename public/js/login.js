@@ -1,7 +1,3 @@
-/* ════════════════════════════════════════════════════════ */
-/* LOGIN FORM HANDLER */
-/* ════════════════════════════════════════════════════════ */
-
 document.getElementById('loginForm')?.addEventListener('submit', async (e) => {
   e.preventDefault();
   const form = e.target;

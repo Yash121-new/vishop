@@ -1,12 +1,5 @@
-/* ════════════════════════════════════════════════════════ */
-/* FILE OPERATIONS UTILITIES */
-/* ════════════════════════════════════════════════════════ */
-
 const fs = require('fs');
 
-/**
- * Read JSON file safely
- */
 function readJSON(file) {
   try {
     return JSON.parse(fs.readFileSync(file, 'utf8'));
@@ -15,16 +8,10 @@ function readJSON(file) {
   }
 }
 
-/**
- * Write JSON file with formatting
- */
 function writeJSON(file, data) {
   fs.writeFileSync(file, JSON.stringify(data, null, 2));
 }
 
-/**
- * Initialize files and directories
- */
 function initializeDataDir(dataDir, filesConfig) {
   if (!fs.existsSync(dataDir)) {
     fs.mkdirSync(dataDir, { recursive: true });

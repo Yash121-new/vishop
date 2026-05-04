@@ -1,0 +1,24 @@
+[
+  {
+    "id": "admin-001",
+    "firstName": "Admin",
+    "lastName": "",
+    "email": "admin@vishoptrader.com",
+    "phone": "8209887552",
+    "password": "4b1cae19a3fa4ded6cfc01efd637e2b0b6ec2a85dca3ce5144f764766c5907df",
+    "role": "admin",
+    "service": "",
+    "createdAt": "2026-05-04T08:35:52.763Z"
+  },
+  {
+    "id": "moqyk5ztl22yv",
+    "firstName": "test",
+    "lastName": "test",
+    "email": "yash20152015.arora@gmail.com",
+    "phone": "9027212949",
+    "password": "cd2c978d2a8670e5c57eeb6b80cf9c83a56f9ef2e1d607f34786986b21797d9b",
+    "role": "user",
+    "service": "Asset Management",
+    "createdAt": "2026-05-04T08:49:14.585Z"
+  }
+]

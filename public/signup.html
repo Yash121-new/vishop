@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up — Vishop Trader LLP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/global.css" />
+  <link rel="stylesheet" href="/css/auth.css" />
+</head>
+<body>
+  <div class="left-panel">
+    <a href="/" class="panel-logo">VISHOP TRADER LLP</a>
+    <div class="panel-center">
+      <div class="panel-big">JOIN US<br /><span>TODAY.</span></div>
+      <p class="panel-sub">Start managing your digital assets with a trusted, registered LLP. Your growth is our mission.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <p><strong>Create your account</strong>Fill in your details to get started in minutes.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <p><strong>Verify your identity</strong>Quick verification to keep your account secure.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <p><strong>Access your dashboard</strong>Start managing assets and tracking performance.</p>
+        </div>
+      </div>
+    </div>
+    <div class="panel-footer">© 2025 Vishop Trader LLP · GSTIN: 09ABBFV4694B1Z0</div>
+  </div>
+
+  <div class="right-panel">
+    <div class="auth-top">
+      <button id="themeToggle" class="btn-theme auth-theme-toggle" onclick="toggleTheme()">🌙</button>
+    </div>
+    <div class="auth-box">
+      <div class="auth-tag">New Account</div>
+      <h1 class="auth-title">Create Account</h1>
+      <p class="auth-sub">Already have an account? <a href="/login.html">Sign in →</a></p>
+
+      <div class="alert" id="alertMsg"></div>
+
+      <form id="signupForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name *</label>
+            <input type="text" name="firstName" required placeholder="Rahul" />
+          </div>
+          <div class="form-group">
+            <label>Last Name *</label>
+            <input type="text" name="lastName" required placeholder="Singh" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address *</label>
+          <input type="email" name="email" required placeholder="you@example.com" />
+        </div>
+        <div class="form-group">
+          <label>Phone Number *</label>
+          <input type="tel" name="phone" required placeholder="+91 XXXXX XXXXX" />
+        </div>
+        <div class="form-group">
+          <label>Service Interest</label>
+          <select name="service">
+            <option value="">Select a service...</option>
+            <option>Asset Management</option>
+            <option>Portfolio Optimization</option>
+            <option>Cloud Computing</option>
+            <option>Custom SaaS Solutions</option>
+            <option>Regulatory Compliance</option>
+            <option>Business Consulting</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Password *</label>
+          <input type="password" name="password" required placeholder="Min. 8 characters" minlength="8" />
+          <span class="pass-hint">Must be at least 8 characters long</span>
+        </div>
+        <div class="form-group">
+          <label>Confirm Password *</label>
+          <input type="password" name="confirmPassword" required placeholder="Repeat password" />
+        </div>
+        <div class="terms">
+          <input type="checkbox" id="termsCheck" required />
+          <label for="termsCheck">I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a> of Vishop Trader LLP</label>
+        </div>
+        <button type="submit" class="btn-submit">Create Account →</button>
+      </form>
+      <p class="login-link">Already have an account? <a href="/login.html">Sign In</a></p>
+    </div>
+  </div>
+
+  <script src="/js/theme.js"></script>
+  <script src="/js/signup.js"></script>
+</body>
+</html>

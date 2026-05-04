@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile — Vishop Trader LLP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/global.css" />
+  <link rel="stylesheet" href="/css/index.css" />
+</head>
+<body>
+  <nav>
+    <a href="/" class="nav-logo">VISHOP <span>TRADER</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" onclick="toggleMobileNav(event)">☰</button>
+    <ul class="nav-links">
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/#why">About</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button id="themeToggle" class="btn-theme" onclick="toggleTheme()">🌙</button>
+      <div id="navAuth" class="nav-auth"></div>
+    </div>
+  </nav>
+
+  <main class="profile-page">
+    <section class="profile-hero">
+      <div class="section-tag">Account</div>
+      <h1>Welcome back, <span id="profileName">User</span></h1>
+      <p class="section-sub">This is your secure profile hub. Manage your account, view your details, and sign out safely.</p>
+    </section>
+
+    <div class="profile-card">
+      <div class="profile-field">
+        <span>Name</span>
+        <strong id="profileFullName">-</strong>
+      </div>
+      <div class="profile-field">
+        <span>Email</span>
+        <strong id="profileEmail">-</strong>
+      </div>
+      <div class="profile-field">
+        <span>Phone</span>
+        <strong id="profilePhone">-</strong>
+      </div>
+      <div class="profile-field">
+        <span>Interested Service</span>
+        <strong id="profileService">-</strong>
+      </div>
+      <div class="profile-actions">
+        <a href="/" class="btn-ghost">Home</a>
+        <button class="btn-gold" onclick="handleLogout()">Logout</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="/js/theme.js"></script>
+  <script src="/js/profile.js"></script>
+</body>
+</html>

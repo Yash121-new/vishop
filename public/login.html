@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login — Vishop Trader LLP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/global.css" />
+  <link rel="stylesheet" href="/css/auth.css" />
+</head>
+<body>
+  <div class="left-panel">
+    <a href="/" class="panel-logo">VISHOP TRADER LLP</a>
+    <div class="panel-center">
+      <div class="panel-big">WELCOME<br /><span>BACK.</span></div>
+      <p class="panel-sub">Access your portfolio, track your assets, and manage your investments — all from one secure dashboard.</p>
+      <div class="panel-tags">
+        <span class="tag">GSTIN: 09ABBFV4694B1Z0</span>
+        <span class="tag">LLP ID: ACU-3689</span>
+        <span class="tag">Verified & Registered</span>
+      </div>
+    </div>
+    <div class="panel-footer">© 2025 Vishop Trader LLP · All rights reserved</div>
+  </div>
+
+  <div class="right-panel">
+    <div class="auth-top">
+      <button id="themeToggle" class="btn-theme auth-theme-toggle" onclick="toggleTheme()">🌙</button>
+    </div>
+    <div class="auth-box">
+      <div class="auth-tag">Secure Login</div>
+      <h1 class="auth-title">Sign In</h1>
+      <p class="auth-sub">New here? <a href="/signup.html">Create an account →</a></p>
+
+      <div class="alert" id="alertMsg"></div>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" name="email" required placeholder="you@example.com" />
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" name="password" required placeholder="••••••••" />
+        </div>
+        <div class="form-footer-row">
+          <label class="remember">
+            <input type="checkbox" /> Remember me
+          </label>
+          <a href="#" class="forgot">Forgot password?</a>
+        </div>
+        <button type="submit" class="btn-submit">Sign In →</button>
+      </form>
+
+      <div class="auth-divider">or</div>
+      <p class="signup-link">Don't have an account? <a href="/signup.html">Sign Up</a></p>
+    </div>
+  </div>
+
+  <script src="/js/theme.js"></script>
+  <script src="/js/login.js"></script>
+</body>
+</html>

@@ -37,6 +37,11 @@ pageRoutes.forEach(route => {
   });
 });
 
+app.get('/healthwealth', (req, res) => {
+  res.status(200).send('OK');
+  console.log('✅ Health check passed');  
+});
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });

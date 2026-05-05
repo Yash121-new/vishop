@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /api/
 Allow: /
 
-Sitemap: https://vishoptrader.com/sitemap.xml
+Sitemap: https://vishoptraderllpvvda.com/sitemap.xml

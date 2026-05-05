@@ -1,5 +1,8 @@
 User-agent: *
-Disallow: /api/
-Allow: /
+Disallow: /404
+Disallow: /admin
+Disallow: /login
+Disallow: /signup
+Disallow: /profile
 
-Sitemap: https://vishoptraderllpvvda.com/sitemap.xml
+Sitemap: https://www.vishoptraderllpvvda.com/sitemap.xml

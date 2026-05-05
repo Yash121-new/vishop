@@ -10,28 +10,12 @@
   <link rel="stylesheet" href="/css/index.css" />
 </head>
 <body>
-  <nav>
-    <a href="/" class="nav-logo">VISHOP <span>TRADER</span></a>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" onclick="toggleMobileNav(event)">☰</button>
-    <ul class="nav-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#why">About</a></li>
-      <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="nav-cta">
-      <button id="themeToggle" class="btn-theme" onclick="toggleTheme()">🌙</button>
-      <div id="navAuth" class="nav-auth">
-        <a href="/login.html" class="btn-outline">Login</a>
-        <a href="/signup.html" class="btn-gold">Sign Up</a>
-      </div>
-    </div>
-  </nav>
+  <div id="header"></div>
 
   <section class="hero">
     <div class="hero-badge">Registered LLP · GSTIN Verified</div>
     <h1>
-      VISHOP<br /><span class="highlight">TRADER</span><br />LLP
+      VISHOP <span class="highlight">TRADER</span> LLP
     </h1>
     <p class="hero-sub">
       Your trusted partner in digital asset management, distributed ledger technology, and tailored SaaS solutions for modern businesses.
@@ -41,7 +25,7 @@
       <span>ACU-3689</span>
     </p>
     <div class="hero-actions">
-      <a href="#contact" class="btn-hero">Get Consultation</a>
+      <a href="/contact" class="btn-hero">Get Consultation</a>
       <a href="#services" class="btn-ghost">Our Services</a>
     </div>
     <div class="hero-ticker">
@@ -130,186 +114,40 @@
     </div>
   </section>
 
-  <section id="why" class="why-section">
-    <div class="why-grid">
-      <div class="why-left">
-        <div class="section-tag">Why Choose Us</div>
-        <div class="big-text">
-          BUILT FOR <span>TRUST.</span> DESIGNED FOR <span>GROWTH.</span>
-        </div>
-        <p>
-          Vishop Trader LLP combines deep industry expertise with cutting-edge technology to deliver results that matter. We are a
-          registered LLP with a proven track record and client-first approach.
-        </p>
-      </div>
-      <div class="why-list">
-        <div class="why-item">
-          <div class="why-dot"></div>
-          <div>
-            <h4>Industry-Leading Expertise</h4>
-            <p>
-              Our team brings 5+ years in fintech and digital assets markets, staying at the forefront of industry developments
-              to deliver unparalleled insights.
-            </p>
-          </div>
-        </div>
-        <div class="why-item">
-          <div class="why-dot"></div>
-          <div>
-            <h4>Cutting-Edge Technology</h4>
-            <p>
-              We leverage state-of-the-art blockchain and fintech solutions with proprietary algorithms and advanced analytics
-              for superior results.
-            </p>
-          </div>
-        </div>
-        <div class="why-item">
-          <div class="why-dot"></div>
-          <div>
-            <h4>Client-Centric Approach</h4>
-            <p>Personalized strategies tailored to your unique needs and goals. Our dedicated support team is available 24/7 every step of the way.</p>
-          </div>
-        </div>
-        <div class="why-item">
-          <div class="why-dot"></div>
-          <div>
-            <h4>Uncompromising Security</h4>
-            <p>
-              Multi-layered security with advanced encryption, regular audits, and cold storage solutions to protect your assets
-              at all times.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <div class="divider" style="margin-top: 60px;"></div>
 
-  <section id="pricing">
-    <div class="section-tag">Transparent Pricing</div>
-    <h2 class="section-title">Plans for Every Scale</h2>
-    <p class="section-sub">Flexible pricing designed to grow with your business. No hidden fees, no surprises.</p>
-
-    <div class="pricing-grid">
-      <div class="price-card">
-        <div class="price-tier">Basic</div>
-        <div class="price-amount">₹200-₹2K<sub></sub></div>
-        <p class="price-desc">Essential tools and basic market analysis for individuals and small businesses.</p>
-        <ul class="price-features">
-          <li>Essential trading tools</li>
-          <li>Basic market analysis</li>
-          <li>Email support</li>
-          <li>Monthly reports</li>
-        </ul>
-        <a href="#contact" class="btn-ghost" style="display: block; text-align: center; padding: 12px">Get Started</a>
-      </div>
-      <div class="price-card featured">
-        <div class="price-badge">Most Popular</div>
-        <div class="price-tier">Standard</div>
-        <div class="price-amount">₹2K-₹6K<sub></sub></div>
-        <p class="price-desc">Advanced features, portfolio management, and real-time market data for growing businesses.</p>
-        <ul class="price-features">
-          <li>Advanced analytics dashboard</li>
-          <li>Portfolio management</li>
-          <li>Real-time market data</li>
-          <li>Priority support</li>
-          <li>Weekly reports</li>
-        </ul>
-        <a href="#contact" class="btn-gold" style="display: block; text-align: center; padding: 12px; border-radius: 2px; text-decoration: none; font-weight: 700; font-size: 0.85rem">Get Started</a>
-      </div>
-      <div class="price-card">
-        <div class="price-tier">Premium</div>
-        <div class="price-amount">₹6K-₹10K<sub></sub></div>
-        <p class="price-desc">Advanced customized solutions with tailored algorithms, dedicated support, and enterprise-level security.</p>
-        <ul class="price-features">
-          <li>Custom algorithms</li>
-          <li>Dedicated account manager</li>
-          <li>Enterprise-grade security</li>
-          <li>24/7 support</li>
-          <li>Custom integrations</li>
-        </ul>
-        <a href="#contact" class="btn-ghost" style="display: block; text-align: center; padding: 12px">Get Started</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="contact-section">
-    <div class="section-tag">Get In Touch</div>
-    <h2 class="section-title">Start Your Journey</h2>
-    <p class="section-sub">Have a query? Our team is ready to assist you. Fill the form and we'll get back to you within 24 hours.</p>
-
-    <div class="contact-wrap">
-      <div class="contact-info">
-        <div class="contact-row">
-          <span class="contact-label">Company</span>
-          <span class="contact-val">Vishop Trader LLP</span>
-        </div>
-        <div class="contact-row">
-          <span class="contact-label">GSTIN</span>
-          <span class="contact-val">09ABBFV4694B1Z0</span>
-        </div>
-        <div class="contact-row">
-          <span class="contact-label">LLP ID</span>
-          <span class="contact-val">ACU-3689</span>
-        </div>
-        <div class="contact-row">
-          <span class="contact-label">Mobile</span>
-          <span class="contact-val">8209887552 · 9259592895</span>
-        </div>
-        <div class="contact-row">
-          <span class="contact-label">Email</span>
-          <span class="contact-val">vishap23thakur@gmail.com<br />singhvikram7552820@gmail.com</span>
-        </div>
-      </div>
-
-      <form class="contact-form" id="contactForm">
-        <div class="form-row">
-          <div class="form-group">
-            <label>Full Name *</label>
-            <input type="text" name="name" required placeholder="Your name" />
-          </div>
-          <div class="form-group">
-            <label>Phone *</label>
-            <input type="tel" name="phone" required placeholder="+91 XXXXX XXXXX" />
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Email Address *</label>
-          <input type="email" name="email" required placeholder="you@example.com" />
-        </div>
-        <div class="form-group">
-          <label>Service Interested In</label>
-          <select name="service">
-            <option value="">Select a service...</option>
-            <option>Asset Management</option>
-            <option>Portfolio Optimization</option>
-            <option>Cloud Computing</option>
-            <option>Custom SaaS Solutions</option>
-            <option>Regulatory Compliance</option>
-            <option>Business Consulting</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Message *</label>
-          <textarea name="message" required placeholder="Tell us about your requirements..."></textarea>
-        </div>
-        <div class="form-msg" id="formMsg"></div>
-        <button type="submit" class="form-submit">Send Query →</button>
-      </form>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-logo">VISHOP TRADER LLP</div>
-    <div class="footer-links">
-      <a href="#services">Services</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#contact">Contact</a>
-    </div>
-    <div class="footer-copy">© 2025 Vishop Trader LLP · LLP ID ACU-3689</div>
-  </footer>
+  <div id="footer"></div>
 
 
+  <script>
+  fetch('/header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+      updateNavAuth(); // Update nav after header loads
+    });
+
+  fetch('/footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer').innerHTML = data;
+    });
+
+  if (window.location.hash === '#services') {
+    if (document.referrer && document.referrer.includes(window.location.origin) && !document.referrer.includes('/#services')) {
+      setTimeout(() => {
+        const element = document.getElementById('services');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 200);
+    } else {
+      history.replaceState(null, null, '/');
+    }
+  } else {
+    window.scrollTo(0, 0);
+  }
+  </script>
   <script src="/js/theme.js"></script>
-  <script src="/js/contact.js"></script>
 </body>
 </html>

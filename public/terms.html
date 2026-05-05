@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms & Conditions - Vishop Trader LLP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/global.css" />
+  <link rel="stylesheet" href="/css/index.css" />
+  <style>
+    .policy-content {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 40px 20px;
+      line-height: 1.8;
+    }
+    .policy-content h1 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      color: var(--text-primary);
+    }
+    .policy-content h2 {
+      font-size: 1.5rem;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      color: var(--text-primary);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 10px;
+    }
+    .policy-content p {
+      margin-bottom: 15px;
+      color: var(--text-secondary);
+    }
+    .policy-content ul {
+      margin-left: 20px;
+      margin-bottom: 15px;
+    }
+    .policy-content li {
+      margin-bottom: 10px;
+      color: var(--text-secondary);
+    }
+  </style>
+</head>
+<body>
+  <div id="header"></div>
+
+  <div class="policy-content">
+    <h1>Terms & Conditions</h1>
+    <p><strong>Effective Date:</strong> January 1, 2025</p>
+
+    <h2>1. Acceptance of Terms</h2>
+    <p>
+      By accessing and using this website and our services, you accept and agree to be bound by the terms and provision of this agreement. 
+      If you do not agree to abide by the above, please do not use this service.
+    </p>
+
+    <h2>2. License</h2>
+    <p>
+      Vishop Trader LLP grants you a limited, non-exclusive, non-transferable license to use our website and services for lawful purposes only. 
+      You may not:
+    </p>
+    <ul>
+      <li>Reproduce, duplicate, or copy our content without permission</li>
+      <li>Modify or alter the website or services</li>
+      <li>Reverse engineer or attempt to gain unauthorized access</li>
+      <li>Use the website for any illegal or unauthorized purpose</li>
+      <li>Interfere with or disrupt the normal functioning of the website</li>
+    </ul>
+
+    <h2>3. User Accounts</h2>
+    <p>
+      When you create an account with us, you must provide accurate and complete information. You are responsible for maintaining 
+      the confidentiality of your login credentials and for all activities that occur under your account. You agree to notify us 
+      immediately of any unauthorized use of your account.
+    </p>
+
+    <h2>4. Service Usage</h2>
+    <p>
+      Our services are provided on an "as is" and "as available" basis. We reserve the right to modify, suspend, or discontinue 
+      any service with or without notice. Your use of the services is at your own risk.
+    </p>
+
+    <h2>5. Limitation of Liability</h2>
+    <p>
+      To the fullest extent permitted by law, Vishop Trader LLP shall not be liable for any indirect, incidental, special, 
+      consequential, or punitive damages resulting from your use of or inability to use the website or services, even if we 
+      have been advised of the possibility of such damages.
+    </p>
+
+    <h2>6. Disclaimer of Warranties</h2>
+    <p>
+      The website and services are provided without any warranty or guarantee of any kind. We do not warrant that the website 
+      will be uninterrupted, error-free, or that any defects will be corrected.
+    </p>
+
+    <h2>7. Intellectual Property Rights</h2>
+    <p>
+      All content, including text, graphics, logos, and images, are the property of Vishop Trader LLP or its content suppliers 
+      and are protected by international copyright laws. Unauthorized use is prohibited.
+    </p>
+
+    <h2>8. Third-Party Links</h2>
+    <p>
+      Our website may contain links to third-party websites. We are not responsible for the content, accuracy, or practices of 
+      these external sites. Your use of third-party websites is at your own risk and subject to their terms and conditions.
+    </p>
+
+    <h2>9. Payment and Refunds</h2>
+    <p>
+      All payments must be made in accordance with the pricing displayed on our website. We reserve the right to modify pricing 
+      with notice. Refund policies are subject to the terms outlined in your service agreement.
+    </p>
+
+    <h2>10. Termination</h2>
+    <p>
+      We reserve the right to terminate or suspend your account and access to our services at any time, with or without cause, 
+      and with or without notice.
+    </p>
+
+    <h2>11. Governing Law</h2>
+    <p>
+      These Terms & Conditions are governed by and construed in accordance with the laws of India, and you irrevocably submit 
+      to the exclusive jurisdiction of the courts located in India.
+    </p>
+
+    <h2>12. Amendments</h2>
+    <p>
+      We reserve the right to amend these Terms & Conditions at any time. Continued use of the website after such amendments 
+      constitutes your acceptance of the revised terms.
+    </p>
+
+    <h2>13. Contact Information</h2>
+    <p>
+      If you have questions regarding these Terms & Conditions, please contact us at:
+    </p>
+    <p>
+      <strong>Vishop Trader LLP</strong><br />
+      Email: vishap23thakur@gmail.com<br />
+      Phone: 8209887552 · 9259592895
+    </p>
+  </div>
+
+  <div id="footer"></div>
+
+  <script>
+  fetch('/header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+      document.getElementById('services-link').href = '/#services';
+      updateNavAuth(); // No active for terms
+    });
+
+  fetch('/footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer').innerHTML = data;
+    });
+  </script>
+  <script src="/js/theme.js"></script>
+</body>
+</html>

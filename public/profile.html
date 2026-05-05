@@ -10,20 +10,7 @@
   <link rel="stylesheet" href="/css/index.css" />
 </head>
 <body>
-  <nav>
-    <a href="/" class="nav-logo">VISHOP <span>TRADER</span></a>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" onclick="toggleMobileNav(event)">☰</button>
-    <ul class="nav-links">
-      <li><a href="/#services">Services</a></li>
-      <li><a href="/#why">About</a></li>
-      <li><a href="/#pricing">Pricing</a></li>
-      <li><a href="/#contact">Contact</a></li>
-    </ul>
-    <div class="nav-cta">
-      <button id="themeToggle" class="btn-theme" onclick="toggleTheme()">🌙</button>
-      <div id="navAuth" class="nav-auth"></div>
-    </div>
-  </nav>
+  <div id="header"></div>
 
   <main class="profile-page">
     <section class="profile-hero">
@@ -56,6 +43,15 @@
     </div>
   </main>
 
+  <script>
+  fetch('/header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+      document.getElementById('services-link').href = '/#services';
+      updateNavAuth(); // No active for profile
+    });
+  </script>
   <script src="/js/theme.js"></script>
   <script src="/js/profile.js"></script>
 </body>

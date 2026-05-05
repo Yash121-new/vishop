@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - Vishop Trader LLP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/global.css" />
+  <link rel="stylesheet" href="/css/index.css" />
+</head>
+<body>
+  <div id="header"></div>
+
+  <section class="contact-section" style="padding-top: 80px;">
+    <div class="section-tag">Get In Touch</div>
+    <h2 class="section-title">Start Your Journey</h2>
+    <p class="section-sub">Have a query? Our team is ready to assist you. Fill the form and we'll get back to you within 24 hours.</p>
+
+    <div class="contact-wrap">
+      <div class="contact-info">
+        <div class="contact-row">
+          <span class="contact-label">Company</span>
+          <span class="contact-val">Vishop Trader LLP</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">GSTIN</span>
+          <span class="contact-val">09ABBFV4694B1Z0</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">LLP ID</span>
+          <span class="contact-val">ACU-3689</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Mobile</span>
+          <span class="contact-val">8209887552 · 9259592895</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Email</span>
+          <span class="contact-val">vishap23thakur@gmail.com<br />singhvikram7552820@gmail.com</span>
+        </div>
+      </div>
+
+      <form class="contact-form" id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name *</label>
+            <input type="text" name="name" required placeholder="Your name" />
+          </div>
+          <div class="form-group">
+            <label>Phone *</label>
+            <input type="tel" name="phone" required placeholder="+91 XXXXX XXXXX" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address *</label>
+          <input type="email" name="email" required placeholder="you@example.com" />
+        </div>
+        <div class="form-group">
+          <label>Service Interested In</label>
+          <select name="service">
+            <option value="">Select a service...</option>
+            <option>Asset Management</option>
+            <option>Portfolio Optimization</option>
+            <option>Cloud Computing</option>
+            <option>Custom SaaS Solutions</option>
+            <option>Regulatory Compliance</option>
+            <option>Business Consulting</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message *</label>
+          <textarea name="message" required placeholder="Tell us about your requirements..."></textarea>
+        </div>
+        <div class="form-msg" id="formMsg"></div>
+        <button type="submit" class="form-submit">Send Query →</button>
+      </form>
+    </div>
+  </section>
+
+  <div id="footer"></div>
+
+  <script>
+  fetch('/header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+      document.getElementById('services-link').href = '/#services';
+      document.querySelector('a[href="/contact"]').classList.add('active');
+      updateNavAuth(); // Update nav after header loads
+    });
+
+  fetch('/footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer').innerHTML = data;
+    });
+  </script>
+  <script src="/js/theme.js"></script>
+  <script src="/js/contact.js"></script>
+</body>
+</html>

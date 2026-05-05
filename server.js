@@ -19,6 +19,24 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api', publicRoutes);
 app.use('/api/admin', adminRoutes);
 
+const pageRoutes = [
+  '/',
+  '/about',
+  '/pricing',
+  '/contact',
+  '/privacy',
+  '/terms',
+  '/login',
+  '/signup'
+];
+
+pageRoutes.forEach(route => {
+  app.get(route, (req, res) => {
+    const page = route === '/' ? 'index.html' : `${route.slice(1)}.html`;
+    res.sendFile(path.join(__dirname, 'public', page));
+  });
+});
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
@@ -41,16 +59,15 @@ async function start() {
       await adminUser.save();
       console.log('✅ Admin user created');
     }
-
-    app.listen(PORT, () => {
-      console.log(`\n🚀 Vishop Trader LLP — Server running on http://localhost:${PORT}`);
-      console.log(`   Admin Panel : http://localhost:${PORT}/admin.html`);
-      console.log(`   Admin Login : ${ADMIN_EMAIL} / ${ADMIN_PASS}\n`);
-    });
   } catch (error) {
-    console.error('Failed to start server:', error);
-    process.exit(1);
+    console.error('DB connection failed, but continuing with static serving:', error.message);
   }
+
+  app.listen(PORT, () => {
+    console.log(`\n🚀 Vishop Trader LLP — Server running on http://localhost:${PORT}`);
+    console.log(`   Admin Panel : http://localhost:${PORT}/admin.html`);
+    console.log(`   Admin Login : ${ADMIN_EMAIL} / ${ADMIN_PASS}\n`);
+  });
 }
 
 start();

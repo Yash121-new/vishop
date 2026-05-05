@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing - Vishop Trader LLP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/global.css" />
+  <link rel="stylesheet" href="/css/index.css" />
+</head>
+<body>
+  <div id="header"></div>
+
+  <section id="pricing" style="padding-top: 80px;">
+    <div class="section-tag">Transparent Pricing</div>
+    <h2 class="section-title">Plans for Every Scale</h2>
+    <p class="section-sub">Flexible pricing designed to grow with your business. No hidden fees, no surprises.</p>
+
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-tier">Basic</div>
+        <div class="price-amount">₹200-₹2K<sub></sub></div>
+        <p class="price-desc">Essential tools and basic market analysis for individuals and small businesses.</p>
+        <ul class="price-features">
+          <li>Essential trading tools</li>
+          <li>Basic market analysis</li>
+          <li>Email support</li>
+          <li>Monthly reports</li>
+        </ul>
+        <a href="/contact" class="btn-ghost" style="display: block; text-align: center; padding: 12px">Get Started</a>
+      </div>
+      <div class="price-card featured">
+        <div class="price-badge">Most Popular</div>
+        <div class="price-tier">Standard</div>
+        <div class="price-amount">₹2K-₹6K<sub></sub></div>
+        <p class="price-desc">Advanced features, portfolio management, and real-time market data for growing businesses.</p>
+        <ul class="price-features">
+          <li>Advanced analytics dashboard</li>
+          <li>Portfolio management</li>
+          <li>Real-time market data</li>
+          <li>Priority support</li>
+          <li>Weekly reports</li>
+        </ul>
+        <a href="/contact" class="btn-gold" style="display: block; text-align: center; padding: 12px; border-radius: 2px; text-decoration: none; font-weight: 700; font-size: 0.85rem">Get Started</a>
+      </div>
+      <div class="price-card">
+        <div class="price-tier">Premium</div>
+        <div class="price-amount">₹6K-₹10K<sub></sub></div>
+        <p class="price-desc">Advanced customized solutions with tailored algorithms, dedicated support, and enterprise-level security.</p>
+        <ul class="price-features">
+          <li>Custom algorithms</li>
+          <li>Dedicated account manager</li>
+          <li>Enterprise-grade security</li>
+          <li>24/7 support</li>
+          <li>Custom integrations</li>
+        </ul>
+        <a href="/contact" class="btn-ghost" style="display: block; text-align: center; padding: 12px">Get Started</a>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer"></div>
+
+  <script>
+  fetch('/header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+      document.getElementById('services-link').href = '/#services';
+      document.querySelector('a[href="/pricing"]').classList.add('active');
+      updateNavAuth(); // Update nav after header loads
+    });
+
+  fetch('/footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer').innerHTML = data;
+    });
+  </script>
+  <script src="/js/theme.js"></script>
+</body>
+</html>

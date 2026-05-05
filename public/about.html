@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - Vishop Trader LLP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/global.css" />
+  <link rel="stylesheet" href="/css/index.css" />
+</head>
+<body>
+  <div id="header"></div>
+
+  <section id="why" class="why-section" style="padding-top: 80px;">
+    <div class="why-grid">
+      <div class="why-left">
+        <div class="section-tag">Why Choose Us</div>
+        <div class="big-text">
+          BUILT FOR <span>TRUST.</span> DESIGNED FOR <span>GROWTH.</span>
+        </div>
+        <p>
+          Vishop Trader LLP combines deep industry expertise with cutting-edge technology to deliver results that matter. We are a
+          registered LLP with a proven track record and client-first approach.
+        </p>
+      </div>
+      <div class="why-list">
+        <div class="why-item">
+          <div class="why-dot"></div>
+          <div>
+            <h4>Industry-Leading Expertise</h4>
+            <p>
+              Our team brings 5+ years in fintech and digital assets markets, staying at the forefront of industry developments
+              to deliver unparalleled insights.
+            </p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-dot"></div>
+          <div>
+            <h4>Cutting-Edge Technology</h4>
+            <p>
+              We leverage state-of-the-art blockchain and fintech solutions with proprietary algorithms and advanced analytics
+              for superior results.
+            </p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-dot"></div>
+          <div>
+            <h4>Client-Centric Approach</h4>
+            <p>Personalized strategies tailored to your unique needs and goals. Our dedicated support team is available 24/7 every step of the way.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-dot"></div>
+          <div>
+            <h4>Uncompromising Security</h4>
+            <p>
+              Multi-layered security with advanced encryption, regular audits, and cold storage solutions to protect your assets
+              at all times.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer"></div>
+
+  <script>
+  fetch('/header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+      document.getElementById('services-link').href = '/#services';
+      document.querySelector('a[href="/about"]').classList.add('active');
+      updateNavAuth(); // Update nav after header loads
+    });
+
+  fetch('/footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer').innerHTML = data;
+    });
+  </script>
+  <script src="/js/theme.js"></script>
+</body>
+</html>

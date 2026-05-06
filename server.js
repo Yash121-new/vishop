@@ -10,6 +10,15 @@ const adminRoutes = require('./routes/admin');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Redirect non-www to www
+app.use((req, res, next) => {
+  if (req.headers.host && !req.headers.host.startsWith('www.')) {
+    const newHost = 'www.' + req.headers.host;
+    return res.redirect(301, `${req.protocol}://${newHost}${req.originalUrl}`);
+  }
+  next();
+});
+
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'admin@vishoptrader.com';
 const ADMIN_PASS = process.env.ADMIN_PASS || 'admin123';
 

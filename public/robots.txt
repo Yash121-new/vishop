@@ -1,8 +1,10 @@
 User-agent: *
-Disallow: /404
+Allow: /
+
 Disallow: /admin
 Disallow: /login
 Disallow: /signup
 Disallow: /profile
+Disallow: /404
 
 Sitemap: https://www.vishoptraderllpvvda.com/sitemap.xml

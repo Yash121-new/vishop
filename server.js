@@ -43,6 +43,14 @@ app.get('/healthwealth', (req, res) => {
 });
 
 app.get('*', (req, res) => {
+  // ❌ important files ko skip karo
+  if (
+    req.path === '/robots.txt' ||
+    req.path === '/sitemap.xml' ||
+    req.path.startsWith('/api')
+  ) {
+    return res.status(404).end();
+  }
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
